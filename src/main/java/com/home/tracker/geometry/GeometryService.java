@@ -14,9 +14,11 @@ public class GeometryService {
   GeometryFactory geometryFactory;
 
   public Point getCoords(CoordinatesDTO position) {
-    Point point =
-        geometryFactory.createPoint(
-            new Coordinate(position.getLongitude(), position.getLatitude()));
+    return getCoords(position.getLongitude(), position.getLatitude());
+  }
+
+  public Point getCoords(Double longitude, Double latitude) {
+    Point point = geometryFactory.createPoint(new Coordinate(longitude, latitude));
     point.setSRID(4326);
     return point;
   }
