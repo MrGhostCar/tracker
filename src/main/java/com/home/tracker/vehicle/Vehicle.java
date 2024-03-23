@@ -1,12 +1,10 @@
 package com.home.tracker.vehicle;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.locationtech.jts.geom.Point;
 
 import java.util.UUID;
 
@@ -19,7 +17,8 @@ public class Vehicle {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   UUID id;
-  Double latitude;
-  Double longitude;
+
+  @Column(columnDefinition = "geography")
+  Point coordinate;
 
 }

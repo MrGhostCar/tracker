@@ -1,6 +1,6 @@
 package com.home.tracker.vehicle;
 
-import com.home.tracker.vehicle.dto.MovementUpdateDTO;
+import com.home.tracker.vehicle.dto.CoordinatesDTO;
 import com.home.tracker.vehicle.dto.VehicleResponseDTO;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
@@ -21,7 +21,7 @@ public class VehicleController {
     }
 
     @PostMapping("/vehicle/{id}")
-    public void updateVehicle(@PathVariable UUID id, @RequestBody MovementUpdateDTO newPosition) {
+    public void updateVehicle(@PathVariable UUID id, @RequestBody CoordinatesDTO newPosition) {
         vehicleService.updateVehicle(id, newPosition);
     }
 
