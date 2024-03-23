@@ -1,4 +1,4 @@
-package com.home.tracker.vehicle;
+package com.home.tracker.vehicle.dto;
 
 import lombok.Data;
 
