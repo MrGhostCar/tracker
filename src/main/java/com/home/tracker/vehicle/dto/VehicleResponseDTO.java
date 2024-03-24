@@ -6,9 +6,7 @@ import java.util.UUID;
 
 @Data
 public class VehicleResponseDTO {
-
     private UUID id;
     private Double latitude;
     private Double longitude;
-
 }

@@ -8,7 +8,5 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class VehiclesInCircleDTO {
-
-    List<VehicleResponseDTO> vehicles;
-
+    private List<VehicleResponseDTO> vehicles;
 }
