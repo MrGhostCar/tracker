@@ -9,3 +9,11 @@ services:
       POSTGRES_USER: postgis
     ports:
       - 5435:5432
+  postgis-test:
+    image: postgis/postgis
+    environment:
+      POSTGRES_PASSWORD: postgis
+      POSTGRES_DB: postgis
+      POSTGRES_USER: postgis
+    ports:
+      - 5430:5432

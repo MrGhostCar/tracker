@@ -1,7 +1,7 @@
 package com.home.tracker.vehicle;
 
 import com.home.tracker.config.LModelMapper;
-import com.home.tracker.geometry.GeometryService;
+import com.home.tracker.geometry.GeometryUtils;
 import com.home.tracker.vehicle.dto.CoordinatesDTO;
 import com.home.tracker.vehicle.dto.VehiclesInCircleDTO;
 import com.home.tracker.vehicle.dto.VehicleResponseDTO;
@@ -25,7 +25,6 @@ public class VehicleService {
 
   LModelMapper modelMapper;
   VehicleRepository vehicleRepository;
-  GeometryService geometryService;
   SimpMessagingTemplate template;
 
   public VehicleResponseDTO createVehicle() {
@@ -35,7 +34,7 @@ public class VehicleService {
   }
 
   public void updateVehicle(UUID id, CoordinatesDTO newPosition) {
-    Point newCoordinates = geometryService.getCoords(newPosition);
+    Point newCoordinates = GeometryUtils.getCoords(newPosition);
     Vehicle vehicle = new Vehicle(id, newCoordinates);
     vehicleRepository.save(vehicle);
 
@@ -48,7 +47,7 @@ public class VehicleService {
   }
 
   public VehiclesInCircleDTO findVehiclesInCircle(Double longitude, Double latitude, Long radius) {
-    Point center = geometryService.getCoords(longitude, latitude);
+    Point center = GeometryUtils.getCoords(longitude, latitude);
     List<Vehicle> foundVehicles = vehicleRepository.findVehiclesInCircle(center, radius);
     List<VehicleResponseDTO> foundVehicleDTOs =
         modelMapper.mapList(foundVehicles, VehicleResponseDTO.class);

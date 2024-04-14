@@ -29,4 +29,5 @@ public class VehicleController {
       @RequestParam Double latitude, @RequestParam Double longitude, @RequestParam Long radius) {
     return vehicleService.findVehiclesInCircle(longitude, latitude, radius);
   }
+
 }
