@@ -6,6 +6,7 @@ import org.locationtech.jts.geom.GeometryFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/** General Spring configuration, to set up global service beans. */
 @Configuration
 public class Config {
   @Bean

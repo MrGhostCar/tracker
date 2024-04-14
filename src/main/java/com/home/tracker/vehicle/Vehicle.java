@@ -1,13 +1,13 @@
 package com.home.tracker.vehicle;
 
 import jakarta.persistence.*;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
 
-import java.util.UUID;
-
+/** The Vehicle hibernate entity. */
 @Entity
 @Data
 @AllArgsConstructor
@@ -20,5 +20,4 @@ public class Vehicle {
 
   @Column(columnDefinition = "geography")
   Point coordinate;
-
 }

@@ -11,9 +11,15 @@ import lombok.AllArgsConstructor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service defining the business logic for Notifications, and the process how to store and read
+ * Notifications from DB, and send websocket message as a notification.
+ */
 @Service
 @AllArgsConstructor
 public class NotificationService {
+  public static final String TOPIC_NOTIFICATION = "/topic/notification";
+
   LModelMapper modelMapper;
   NotificationRepository notificationRepository;
   @PersistenceContext private EntityManager entityManager;
@@ -27,15 +33,20 @@ public class NotificationService {
     boolean isTheSameAsLast = isTheSameNotificationAsLast(newNotification);
     notificationRepository.save(newNotification);
     if (!isTheSameAsLast) {
-      NotificationMessageDTO message =
-          modelMapper.map(notificationRequestDTO, NotificationMessageDTO.class);
-      template.convertAndSend("/topic/notification", message);
+      sendWebSocketMessage(notificationRequestDTO);
     }
+  }
+
+  private void sendWebSocketMessage(NotificationRequestDTO notificationRequestDTO) {
+    NotificationMessageDTO message =
+        modelMapper.map(notificationRequestDTO, NotificationMessageDTO.class);
+    template.convertAndSend(TOPIC_NOTIFICATION, message);
   }
 
   private boolean isTheSameNotificationAsLast(Notification newNotification) {
     Optional<Notification> lastMessageOfVehicle =
-        notificationRepository.findFirstByVehicleIdOrderByCreatedOnDesc(newNotification.getVehicle().getId());
+        notificationRepository.findFirstByVehicleIdOrderByCreatedOnDesc(
+            newNotification.getVehicle().getId());
     return lastMessageOfVehicle.filter(newNotification::vehicleMessageEquals).isPresent();
   }
 }

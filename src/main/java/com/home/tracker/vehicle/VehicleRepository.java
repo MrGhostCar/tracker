@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+/** A JPA data access object, for storing and retrieving Vehicle records for the DB. */
 @Repository
 public interface VehicleRepository extends JpaRepository<Vehicle, UUID> {
 

@@ -7,6 +7,7 @@ import java.util.UUID;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+/** REST Endpoint definitions for the Vehicle resource. */
 @RestController
 @AllArgsConstructor
 public class VehicleController {
@@ -28,8 +29,4 @@ public class VehicleController {
       @RequestParam Double latitude, @RequestParam Double longitude, @RequestParam Long radius) {
     return vehicleService.findVehiclesInCircle(longitude, latitude, radius);
   }
-
 }
-
-
-
