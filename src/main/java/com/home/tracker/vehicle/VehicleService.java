@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import org.locationtech.jts.geom.Point;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,6 +20,7 @@ public class VehicleService {
   LModelMapper modelMapper;
   VehicleRepository vehicleRepository;
   GeometryService geometryService;
+  SimpMessagingTemplate template;
 
   public VehicleResponseDTO createVehicle() {
     Vehicle newVehicle = new Vehicle();
@@ -30,6 +32,8 @@ public class VehicleService {
     Point newCoordinates = geometryService.getCoords(newPosition);
     Vehicle vehicle = new Vehicle(id, newCoordinates);
     vehicleRepository.save(vehicle);
+    VehicleResponseDTO vehicleDTO = getVehicleResponse(id, newPosition);
+    template.convertAndSend("/topic/vehicle", vehicleDTO);
   }
 
   public VehiclesInCircleDTO findVehiclesInCircle(Double longitude, Double latitude, Long radius) {
@@ -38,5 +42,9 @@ public class VehicleService {
     List<VehicleResponseDTO> foundVehicleDTOs =
         modelMapper.mapList(foundVehicles, VehicleResponseDTO.class);
     return new VehiclesInCircleDTO(foundVehicleDTOs);
+  }
+
+  public VehicleResponseDTO getVehicleResponse(UUID id, CoordinatesDTO newPosition) {
+    return new VehicleResponseDTO(id, newPosition.getLongitude(), newPosition.getLatitude());
   }
 }
