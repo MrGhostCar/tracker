@@ -4,6 +4,7 @@ import com.home.tracker.vehicle.Vehicle;
 import jakarta.persistence.*;
 
 import java.time.Instant;
+import java.util.Objects;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,4 +28,10 @@ public class Notification {
 
   @CreationTimestamp
   private Instant createdOn;
+
+  public boolean vehicleMessageEquals(Notification that) {
+    if (this == that) return true;
+    return Objects.equals(vehicle.getId(), that.vehicle.getId()) && Objects.equals(message, that.message);
+  }
+
 }

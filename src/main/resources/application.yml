@@ -8,10 +8,10 @@ spring:
     password: ${DB_PASSWORD:postgis}
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       show-sql: true
       database: postgis
-logging:
-  level:
-    org.springframework.web: debug
-    org.springframework.web.servlet.mvc.method.annotation: info
+#logging:
+#  level:
+#    org.springframework.web: debug
+#    org.springframework.web.servlet.mvc.method.annotation: info
