@@ -1,6 +1,8 @@
 package com.home.tracker.vehicle;
 
-import com.home.tracker.geometry.GeometryUtils;
+import com.home.tracker.model.Vehicle;
+import com.home.tracker.repository.VehicleRepository;
+import com.home.tracker.util.GeometryUtils;
 import java.util.List;
 import java.util.UUID;
 import org.assertj.core.api.Assertions;
@@ -16,7 +18,8 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 public class VehicleRepositoryTest {
 
-    @Autowired VehicleRepository vehicleRepository;
+    @Autowired
+    VehicleRepository vehicleRepository;
 
     @Test
     public void testCRUD() {

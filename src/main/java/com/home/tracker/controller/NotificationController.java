@@ -1,6 +1,7 @@
-package com.home.tracker.notification;
+package com.home.tracker.controller;
 
-import com.home.tracker.notification.dto.NotificationRequestDTO;
+import com.home.tracker.service.NotificationService;
+import com.home.tracker.dto.NotificationRequestDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

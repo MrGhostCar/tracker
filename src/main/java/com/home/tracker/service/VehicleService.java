@@ -1,10 +1,12 @@
-package com.home.tracker.vehicle;
+package com.home.tracker.service;
 
 import com.home.tracker.config.LModelMapper;
-import com.home.tracker.geometry.GeometryUtils;
-import com.home.tracker.vehicle.dto.CoordinatesDTO;
-import com.home.tracker.vehicle.dto.VehiclesInCircleDTO;
-import com.home.tracker.vehicle.dto.VehicleResponseDTO;
+import com.home.tracker.model.Vehicle;
+import com.home.tracker.repository.VehicleRepository;
+import com.home.tracker.util.GeometryUtils;
+import com.home.tracker.dto.CoordinatesDTO;
+import com.home.tracker.dto.VehiclesInCircleDTO;
+import com.home.tracker.dto.VehicleResponseDTO;
 
 import java.util.List;
 import java.util.UUID;

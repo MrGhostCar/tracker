@@ -1,9 +1,11 @@
-package com.home.tracker.notification;
+package com.home.tracker.service;
 
 import com.home.tracker.config.LModelMapper;
-import com.home.tracker.notification.dto.NotificationMessageDTO;
-import com.home.tracker.notification.dto.NotificationRequestDTO;
-import com.home.tracker.vehicle.Vehicle;
+import com.home.tracker.model.Notification;
+import com.home.tracker.dto.NotificationMessageDTO;
+import com.home.tracker.dto.NotificationRequestDTO;
+import com.home.tracker.repository.NotificationRepository;
+import com.home.tracker.model.Vehicle;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.Optional;

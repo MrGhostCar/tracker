@@ -1,6 +1,6 @@
-package com.home.tracker.geometry;
+package com.home.tracker.util;
 
-import com.home.tracker.vehicle.dto.CoordinatesDTO;
+import com.home.tracker.dto.CoordinatesDTO;
 import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;

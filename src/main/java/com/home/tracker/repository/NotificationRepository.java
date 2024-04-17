@@ -1,5 +1,6 @@
-package com.home.tracker.notification;
+package com.home.tracker.repository;
 
+import com.home.tracker.model.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

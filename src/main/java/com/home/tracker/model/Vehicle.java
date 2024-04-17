@@ -1,4 +1,4 @@
-package com.home.tracker.vehicle;
+package com.home.tracker.model;
 
 import jakarta.persistence.*;
 import java.util.UUID;

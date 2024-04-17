@@ -1,6 +1,5 @@
-package com.home.tracker.notification;
+package com.home.tracker.model;
 
-import com.home.tracker.vehicle.Vehicle;
 import jakarta.persistence.*;
 import java.time.Instant;
 import java.util.Objects;

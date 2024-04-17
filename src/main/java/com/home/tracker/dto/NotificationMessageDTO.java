@@ -1,4 +1,4 @@
-package com.home.tracker.notification.dto;
+package com.home.tracker.dto;
 
 import java.util.UUID;
 import lombok.Data;

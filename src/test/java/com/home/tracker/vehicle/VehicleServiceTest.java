@@ -5,8 +5,11 @@ import static org.mockito.Mockito.*;
 
 import com.home.tracker.config.Config;
 import com.home.tracker.config.LModelMapper;
-import com.home.tracker.geometry.GeometryUtils;
-import com.home.tracker.vehicle.dto.VehiclesInCircleDTO;
+import com.home.tracker.model.Vehicle;
+import com.home.tracker.repository.VehicleRepository;
+import com.home.tracker.service.VehicleService;
+import com.home.tracker.util.GeometryUtils;
+import com.home.tracker.dto.VehiclesInCircleDTO;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -22,8 +25,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 public class VehicleServiceTest {
 
   Config appConfig = new Config();
-  @InjectMocks VehicleService vehicleService;
-  @Mock VehicleRepository vehicleRepository;
+  @InjectMocks
+  VehicleService vehicleService;
+  @Mock
+  VehicleRepository vehicleRepository;
   @Spy LModelMapper mapper = appConfig.modelMapper();
 
   @Test

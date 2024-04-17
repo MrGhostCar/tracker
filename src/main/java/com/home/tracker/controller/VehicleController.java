@@ -1,8 +1,9 @@
-package com.home.tracker.vehicle;
+package com.home.tracker.controller;
 
-import com.home.tracker.vehicle.dto.CoordinatesDTO;
-import com.home.tracker.vehicle.dto.VehiclesInCircleDTO;
-import com.home.tracker.vehicle.dto.VehicleResponseDTO;
+import com.home.tracker.service.VehicleService;
+import com.home.tracker.dto.CoordinatesDTO;
+import com.home.tracker.dto.VehiclesInCircleDTO;
+import com.home.tracker.dto.VehicleResponseDTO;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

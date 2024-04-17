@@ -1,14 +1,13 @@
 package com.home.tracker.config;
 
-import com.home.tracker.notification.dto.NotificationMessageDTO;
-import com.home.tracker.notification.dto.NotificationRequestDTO;
-import com.home.tracker.vehicle.Vehicle;
-import com.home.tracker.vehicle.dto.VehicleResponseDTO;
-import org.locationtech.jts.geom.GeometryFactory;
+import com.home.tracker.dto.NotificationMessageDTO;
+import com.home.tracker.dto.NotificationRequestDTO;
+import com.home.tracker.model.Vehicle;
+import com.home.tracker.dto.VehicleResponseDTO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/** General Spring configuration, to set up global service beans. */
+/** General Spring configuration, to set up global beans. */
 @Configuration
 public class Config {
   @Bean
@@ -37,8 +36,4 @@ public class Config {
     return modelMapper;
   }
 
-  @Bean
-  public GeometryFactory getGeometryFactory() {
-    return new GeometryFactory();
-  }
 }

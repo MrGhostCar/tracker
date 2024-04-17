@@ -1,8 +1,9 @@
-package com.home.tracker.vehicle;
+package com.home.tracker.repository;
 
 import java.util.List;
 import java.util.UUID;
 
+import com.home.tracker.model.Vehicle;
 import org.locationtech.jts.geom.Point;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
