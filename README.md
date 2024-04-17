@@ -41,3 +41,9 @@ cd vehicles
 . venv/bin/activate
 python vehicles.py 127.0.0.1 5000
 ```
+
+## Documentation
+Doc available in swaggerUI: <br>
+http://localhost:5000/swagger-ui/index.html <br>
+The OpenAPI specification is available as JSON at:<br>
+http://localhost:5000/v3/api-docs
