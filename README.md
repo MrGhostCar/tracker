@@ -7,7 +7,7 @@ Project for tracking vehicle movements.
 
 ### Server setup - in the java server root folder:
 Code repository: https://github.com/MrGhostCar/tracker <br>
-To start DB (postgis) the only dependency needed for the server, port 5435 must be free:
+To start DB (postgis) the only dependency needed for the server, port 5435 and 5430 must be free:
 ```
 docker compose up
 ```
