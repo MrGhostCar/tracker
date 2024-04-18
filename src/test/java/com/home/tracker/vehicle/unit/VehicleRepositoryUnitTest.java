@@ -1,4 +1,4 @@
-package com.home.tracker.vehicle;
+package com.home.tracker.vehicle.unit;
 
 import com.home.tracker.model.Vehicle;
 import com.home.tracker.repository.VehicleRepository;
@@ -16,20 +16,29 @@ import org.springframework.test.context.ActiveProfiles;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
 @ActiveProfiles("test")
-public class VehicleRepositoryTest {
+public class VehicleRepositoryUnitTest {
 
     @Autowired
     VehicleRepository vehicleRepository;
 
     @Test
-    public void testCRUD() {
+    public void givenVehiclesWereStored_whenFindAllCalled_thenSameGeometryCoordsAreRecoveredAsSaved() {
         Point testCoords = GeometryUtils.getCoords(47.47581, 19.05749);
         Vehicle testVehicle = new Vehicle(UUID.randomUUID(), testCoords);
         vehicleRepository.save(testVehicle);
 
         List<Vehicle> vehicles = vehicleRepository.findAll();
 
-        Assertions.assertThat(vehicles).extracting(Vehicle::getCoordinate).containsOnly(testCoords);
+        Assertions.assertThat(vehicles).extracting(Vehicle::getCoordinate).contains(testCoords);
+    }
+
+    @Test
+    public void givenVehiclesWereStored_whenDeleteAllCalled_thenRepoWillBeEmpty() {
+        Point testCoords = GeometryUtils.getCoords(47.47581, 19.05749);
+        Vehicle testVehicle = new Vehicle(UUID.randomUUID(), testCoords);
+        vehicleRepository.save(testVehicle);
+
+        Assertions.assertThat(vehicleRepository.findAll()).isNotEmpty();
 
         vehicleRepository.deleteAll();
         Assertions.assertThat(vehicleRepository.findAll()).isEmpty();

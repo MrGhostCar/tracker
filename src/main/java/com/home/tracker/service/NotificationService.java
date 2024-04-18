@@ -27,7 +27,7 @@ public class NotificationService {
   @PersistenceContext private EntityManager entityManager;
   SimpMessagingTemplate template;
 
-  public void saveNotification(NotificationRequestDTO notificationRequestDTO) {
+  public void saveAndSendNotification(NotificationRequestDTO notificationRequestDTO) {
     Notification newNotification = modelMapper.map(notificationRequestDTO, Notification.class);
     Vehicle targetVehicle =
         entityManager.getReference(Vehicle.class, notificationRequestDTO.getVehicle_id());

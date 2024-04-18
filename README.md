@@ -26,6 +26,7 @@ To start front-end service:
 ```
 npm run start
 ```
+Once the map is displayed, each vehicle-marker can be clicked, to show it's ID.
 
 ### Python script launch - in python script folder (same as in homework pdf): 
 Install:

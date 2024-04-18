@@ -1,4 +1,4 @@
-package com.home.tracker.vehicle;
+package com.home.tracker.vehicle.unit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -22,7 +22,7 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class VehicleServiceTest {
+public class VehicleServiceUnitTest {
 
   Config appConfig = new Config();
   @InjectMocks

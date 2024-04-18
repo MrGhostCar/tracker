@@ -11,3 +11,7 @@ spring:
       ddl-auto: create
       show-sql: true
       database: postgis
+logging:
+  level:
+    org.springframework.web: debug
+    org.springframework.web.servlet.mvc.method.annotation: info
