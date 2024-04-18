@@ -1,6 +1,6 @@
 package com.home.tracker.controller;
 
-import com.home.tracker.dto.CoordinatesDTO;
+import com.home.tracker.dto.CoordinateDTO;
 import com.home.tracker.dto.VehicleResponseDTO;
 import com.home.tracker.dto.VehiclesInCircleDTO;
 import com.home.tracker.service.VehicleService;
@@ -41,7 +41,7 @@ public class VehicleController {
         @ApiResponse(responseCode = "400", description = "Invalid parameters.")
       })
   @PostMapping("/vehicle/{id}")
-  public void updateVehicle(@PathVariable UUID id, @Valid @RequestBody CoordinatesDTO newPosition) {
+  public void updateVehicle(@PathVariable UUID id, @Valid @RequestBody CoordinateDTO newPosition) {
     vehicleService.updateVehicle(id, newPosition);
   }
 

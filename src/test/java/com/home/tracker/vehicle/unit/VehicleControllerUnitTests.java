@@ -6,7 +6,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.home.tracker.controller.VehicleController;
-import com.home.tracker.dto.CoordinatesDTO;
+import com.home.tracker.dto.CoordinateDTO;
 import com.home.tracker.service.VehicleService;
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ public class VehicleControllerUnitTests {
   @Test
   public void givenInputsInvalid_whenUpdateVehiclesCalled_thenBadRequestReturned()
       throws Exception {
-    CoordinatesDTO invalidCoords = new CoordinatesDTO(300.0, 300.0);
+    CoordinateDTO invalidCoords = new CoordinateDTO(300.0, 300.0);
     UUID testUUID = UUID.randomUUID();
 
     mockMvc
@@ -41,7 +41,7 @@ public class VehicleControllerUnitTests {
   @Test
   public void givenInputsValid_whenUpdateVehiclesCalled_thenOkStatusReturned()
           throws Exception {
-    CoordinatesDTO validCoords = new CoordinatesDTO(40.0, 50.0);
+    CoordinateDTO validCoords = new CoordinateDTO(40.0, 50.0);
     UUID testUUID = UUID.randomUUID();
 
     mockMvc

@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Captures the validation exceptions and constructs a list of validation issues, then deliver that
+ * table in the response body.
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
   @ResponseStatus(HttpStatus.BAD_REQUEST)

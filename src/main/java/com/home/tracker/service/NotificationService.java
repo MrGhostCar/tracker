@@ -32,8 +32,10 @@ public class NotificationService {
     Vehicle targetVehicle =
         entityManager.getReference(Vehicle.class, notificationRequestDTO.getVehicle_id());
     newNotification.setVehicle(targetVehicle);
+
     boolean isTheSameAsLast = isTheSameNotificationAsLast(newNotification);
     notificationRepository.save(newNotification);
+
     if (!isTheSameAsLast) {
       sendWebSocketMessage(notificationRequestDTO);
     }
@@ -49,6 +51,7 @@ public class NotificationService {
     Optional<Notification> lastMessageOfVehicle =
         notificationRepository.findFirstByVehicleIdOrderByCreatedOnDesc(
             newNotification.getVehicle().getId());
+
     return lastMessageOfVehicle.filter(newNotification::vehicleMessageEquals).isPresent();
   }
 }
